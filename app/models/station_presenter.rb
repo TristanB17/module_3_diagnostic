@@ -4,6 +4,8 @@ class StationPresenter
   end
 
   def zip_stations
-    @service.find_stations_by_zip
+    @service.find_stations_by_zip.map do |station|
+      Station.new(station)
+    end
   end
 end

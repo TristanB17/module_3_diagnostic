@@ -16,7 +16,6 @@ class StationService
   end
 
   def get_json(url)
-    really = JSON.parse(conn.get(url).body, symbolize_names: true)
-    binding.pry
+    JSON.parse(conn.get(url).body, symbolize_names: true)[:fuel_stations]
   end
 end
