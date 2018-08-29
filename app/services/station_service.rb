@@ -4,19 +4,19 @@ class StationService
   end
 
   def find_stations_by_zip
-    get_json("/nearest.json?zip=#{@zip}&radius=10&limit=10&fuel_type=LPG,ELEC&state=CA&limit=2&api_key=a#{ENV["ALT_FUEL_FINDER_KEY"]}&format=JSON")
+    get_json("/alt-fuel-stations/v1/nearest.json?location=#{@zip}&fuel_type=LPG,ELEC&limit=10&api_key=#{ENV["ALT_FUEL_FINDER_KEY"]}=JSON")
   end
 
 
   private
   def conn
-    Faraday.new("https://developer.nrel.gov/api/alt-fuel-stations/v1") do |faraday|
+    Faraday.new("https://developer.nrel.gov/api") do |faraday|
       faraday.adapter(Faraday.default_adapter)
     end
   end
 
   def get_json(url)
-    JSON.parse(conn.get(url).body, symbolize_names: true)
     binding.pry
+    JSON.parse(conn.get(url).body, symbolize_names: true)
   end
 end
