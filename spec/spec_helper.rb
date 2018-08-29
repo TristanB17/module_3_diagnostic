@@ -86,6 +86,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = :random
+  stations/v1/nearest.json?location=#{@zip}&fuel_type=E85,ELEC&radius=10&limit=10&api_key=#{ENV['NREL_API_KEY']}&format=JSON")
 
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
