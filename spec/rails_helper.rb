@@ -5,13 +5,13 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-require 'webmock/rspec'
-require 'vcr'
+# require 'webmock/rspec'
+# require 'vcr'
 # Add additional requires below this line. Rails is not loaded until this point!
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/cassettes"
-  config.hook_into :webmock
-end 
+# VCR.configure do |config|
+#   config.cassette_library_dir = "spec/cassettes"
+#   config.hook_into :webmock
+# end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -48,9 +48,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  config.after(:each) do
-    WebMock.reset!
-  end
+  # config.after(:each) do
+  #   WebMock.reset!
+  # end
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

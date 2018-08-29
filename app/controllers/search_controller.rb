@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @nearest_stations = StationPresenter.new(params[:zip_code])
+    presenter = StationPresenter.new(params[:zip_code])
+    @nearest_stations = presenter.zip_stations
   end
 end

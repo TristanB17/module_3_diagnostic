@@ -11,12 +11,12 @@ class StationService
   private
   def conn
     Faraday.new("https://developer.nrel.gov/api/alt-fuel-stations/v1") do |faraday|
-      # faraday.headers['Authorization'] = ENV["ALT_FUEL_FINDER_KEY"]
-      faraday_adapter(Faraday.default_adapter)
+      faraday.adapter(Faraday.default_adapter)
     end
   end
 
   def get_json(url)
     JSON.parse(conn.get(url).body, symbolize_names: true)
+    binding.pry
   end
 end
