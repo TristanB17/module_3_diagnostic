@@ -4,7 +4,7 @@ class StationService
   end
 
   def find_stations_by_zip
-    get_json("/nearest.json?location=#{@zip}&radius=10&limit=10&fuel_type=LPG,ELEC&state=CA&limit=2&api_key=a#{ENV["ALT_FUEL_FINDER_KEY"]}&format=JSON")
+    get_json("/nearest.json?zip=#{@zip}&radius=10&limit=10&fuel_type=LPG,ELEC&state=CA&limit=2&api_key=a#{ENV["ALT_FUEL_FINDER_KEY"]}&format=JSON")
   end
 
 
