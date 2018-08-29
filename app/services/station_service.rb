@@ -3,6 +3,10 @@ class StationService
     @zip = zip
   end
 
+  def find_stations_by_zip
+    get_json("/?fuel_type=LPG,ELEC&state=CA&limit=2&api_key=#{ENV['ALT_FUEL_FINDER_KEY']}&format=JSON")
+  end
+
 
   private
   def conn
