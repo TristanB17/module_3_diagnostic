@@ -1,0 +1,9 @@
+<% @nearest_stations.each do |station| %>
+  <ul class='station'>
+    <li class='name'>Name: <%= station.name %></li>
+    <li class='name'>Address: <%= station.address %></li>
+    <li class='name'>Fuel Types: <%= station.fuel_types %></li>
+    <li class='name'>Distance: <%= station.distance %></li>
+    <li class='name'>Access Times:<%= station.access_times %> </li>
+  </ul>
+<% end %>
